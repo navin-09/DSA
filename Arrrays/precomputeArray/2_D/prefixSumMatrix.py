@@ -13,9 +13,30 @@ class PrefixSumMatrix:
                 prefixArray[i][j] = matrix[i][j]+top+left-diag
 
         return prefixArray
+    
+    def prefix_sum_2d_with_padding(self, matrix):
+        rows, cols = len(matrix), len(matrix[0])
+
+        # Create prefix array with +1 padding (row+1 x col+1)
+        prefix = [[0] * (cols + 1) for _ in range(rows + 1)]
+
+        for i in range(1, rows + 1):
+            for j in range(1, cols + 1):
+                top = prefix[i - 1][j]
+                left = prefix[i][j - 1]
+                diag =  prefix[i - 1][j - 1]
+                prefix[i][j] = matrix[i - 1][j - 1] + top +left - diag
+                     
+        return prefix
+
    
     def submatrix_sum(self,mat, r1, c1, r2, c2):
-        prefix = self.prefix_sum_2d(mat)
+        prefix = self.prefix_sum_2d_with_padding(mat)
+        r1+=1
+        c1+=1
+        r2+=1
+        c2+=1
+        
         top = prefix[r1-1][c2] if r1 > 0 else 0
         left = prefix[r2][c1-1] if c1 > 0 else 0
         diag = prefix[r1-1][c1-1] if r1 > 0 and c1 > 0 else 0
@@ -42,7 +63,10 @@ mat = [
 prefixSumMatrix = PrefixSumMatrix()
 
 pref = prefixSumMatrix.prefix_sum_2d(mat)
+pref1 = prefixSumMatrix.prefix_sum_2d_with_padding(mat)
 for row in pref:
+    print(row)
+for row in pref1:
     print(row)
 
 total_subarray_sum = prefixSumMatrix.sum_of_all_subarray_matrix(mat)
