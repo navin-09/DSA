@@ -4,7 +4,7 @@ class Solution:
         for i in arr:
             res ^= i
         a,b =0,0
-        maskBit = res & -res
+        maskBit = res & -res #  this is important step
         for i in arr:
             if i & maskBit:
                 a ^= i

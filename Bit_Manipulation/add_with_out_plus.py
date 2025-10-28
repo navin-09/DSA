@@ -3,9 +3,7 @@ MAX_INT = 0x7FFFFFFF
 
 def add(a, b):
     while b != 0:
-        carry = (a & b) & MASK
-        a = (a ^ b) & MASK
-        b = (carry << 1) & MASK
+        a, b = (a ^ b) & MASK, ((a & b) << 1) & MASK
 
     # if a is negative in 32-bit form
     return a if a <= MAX_INT else ~(a ^ MASK)

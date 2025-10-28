@@ -9,12 +9,10 @@ class Solution:
     def no_repeat_thrice(self,nums: list[int]) -> int:
         result = 0
         for i in range(32):
-            sumi = sum((num >> i)&1 for num in nums)
-            if sumi%3:
-                result = result | (1<<i)
-
+            sumi = (sum((num>>i)&1 for num in nums))
+            if (sumi % 3):
+                result |=  1<< i
         return result
-
 
 solution = Solution()
 print(solution.no_repeat_twice([1,1,2,3,3,4,4,5,5,6,6]))
