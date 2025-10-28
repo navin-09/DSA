@@ -24,7 +24,6 @@ def max_sum_submatrix_only(matrix):
             # add current bottom row into column sums
             for j in range(cols):
                 col_sum[j] += matrix[bottom][j]
-
             # just get max sum for this compressed 1D array
             cur_max = kadane_max(col_sum)
             

@@ -8,7 +8,7 @@ def trap_two_pointer(height):
     total_water_trapped = 0
 
     while(left<right):
-        if(height[left]<height[right]):
+        if(height[left] < height[right]):
             if(height[left]>lmax):
                 lmax = height[left]
             else:

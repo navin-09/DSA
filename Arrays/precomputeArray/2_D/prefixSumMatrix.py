@@ -1,18 +1,4 @@
 class PrefixSumMatrix:
-    def prefix_sum_2d(self, matrix):
-        row = len(matrix)
-        col = len(matrix)
-
-        prefixArray = [[0]*col for i in range(row)]
-        
-        for i in range(row):
-            for j in range(col):
-                top = prefixArray[i-1][j] if i>0 else 0
-                left = prefixArray[i][j-1] if j>0 else 0
-                diag = prefixArray[i-1][j-1] if i>0 and j>0 else 0
-                prefixArray[i][j] = matrix[i][j]+top+left-diag
-
-        return prefixArray
     
     def prefix_sum_2d_with_padding(self, matrix):
         rows, cols = len(matrix), len(matrix[0])
