@@ -58,3 +58,10 @@ Only the top disk of a rod can be moved
 | Time     | O(n²)                                        |
 | Space    | O(1)                                         |
 | Idea     | Repeatedly select minimum and place in front |
+
+# dfs -> stack , bfs -> queue
+
+| Pattern         | Data structure | Traversal type | Example problem                        |
+| --------------- | -------------- | -------------- | -------------------------------------- |
+| Recursion / DFS | Stack          | Deep first     | Maze solver, permutations              |
+| Iterative BFS   | Queue          | Level first    | Minimum steps in a grid, shortest path |
