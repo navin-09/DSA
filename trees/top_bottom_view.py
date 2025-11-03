@@ -27,10 +27,16 @@ def DFS(node,row,col):
 
 DFS(root,0,0)
 res= []
+top_view = []
+bottom_view =[]
+
 
 for i in sorted(hmap):
     vals = sorted(hmap[i],key=lambda x: (x[0],x[1]))
     res.append([i[1] for i in vals])
-    
+    # top: smallest row (first after sort)
+    top_view.append(vals[0][1])
+    # bottom: largest row (last after sort)
+    bottom_view.append(vals[-1][1])
 
-print('-->',res[::-1])
+print('-->',top_view,bottom_view)
