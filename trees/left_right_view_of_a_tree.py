@@ -21,9 +21,16 @@ def DFS(node,level):
     if not node:
         return
     hmap[level].append(node.val)
-    DFS(node.right,level+1)
     DFS(node.left,level+1)
+    DFS(node.right,level+1)
 
 
 DFS(root,0)
-print(hmap)
+left_view = []
+right_view = []
+for i in sorted(hmap):
+    vals = hmap[i]
+    left_view.append(vals[0])
+    right_view.append(vals[-1])
+
+print('left_view==>',left_view,'right_view==>',right_view)
