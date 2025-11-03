@@ -14,12 +14,15 @@ root.right = TreeNode(12,
 )
 
 def isValidBST(root) -> bool:
-        def helper(root,low, high):
+        def dfs(root,low, high):
             if not root:
                 return True
+            
             if not (low < root.val < high):
                 return False
-            return helper(root.left, low, root.val) and helper(root.right, root.val,high)
-        return helper(root,float('-inf'),float('inf'))
+            
+            return dfs(root.left, low, root.val) and dfs(root.right, root.val,high)
+        
+        return dfs(root,float('-inf'),float('inf'))
 
 print(isValidBST(root))
