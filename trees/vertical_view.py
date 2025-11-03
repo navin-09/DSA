@@ -17,20 +17,18 @@ root.right = TreeNode(12,
 
 hmap = defaultdict(list)
 
-def DFS(node,level):
+def DFS(node,row,col):
     if not node:
         return
-    hmap[level].append(node.val)
-    DFS(node.left,level+1)
-    DFS(node.right,level+1)
+    hmap[col].append((row,node.val))
+    DFS(node.right,row+1,col-1)
+    DFS(node.left,row+1,col+1)
 
 
-DFS(root,0)
-left_view = []
-right_view = []
+DFS(root,0,0)
+
 for i in sorted(hmap):
     vals = hmap[i]
-    left_view.append(vals[0])
-    right_view.append(vals[-1])
+    print(i,vals)
 
-print('left_view==>',left_view,'right_view==>',right_view)
+print(hmap)

@@ -1,6 +1,6 @@
 
 from collections import defaultdict
-from binary_search_tree import TreeNode
+from tree import TreeNode
 
 
 root = TreeNode(8)
