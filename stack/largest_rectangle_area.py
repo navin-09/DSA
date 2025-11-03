@@ -1,4 +1,4 @@
-def next_smaller_index(nums):
+def next_smaller(nums):
     n = len(nums)
     res = [n] * n
     stack = []
@@ -8,7 +8,7 @@ def next_smaller_index(nums):
         stack.append(i)
     return res
 
-def prev_smaller_index(nums):
+def prev_smaller(nums):
     n = len(nums)
     res = [-1] * n
     stack = []
@@ -23,8 +23,8 @@ def prev_smaller_index(nums):
 
 def largest_rectangle_area(heights):
     n = len(heights)
-    prev_sm = prev_smaller_index(heights)
-    next_sm = next_smaller_index(heights)
+    prev_sm = prev_smaller(heights)
+    next_sm = next_smaller(heights)
     
     max_area = 0
     for i in range(n):
