@@ -26,9 +26,10 @@ def DFS(node,row,col):
 
 
 DFS(root,0,0)
+res= []
 
 for i in sorted(hmap):
-    vals = hmap[i]
-    print(i,vals)
+    vals = sorted(hmap[i],key=lambda x: (x[0],x[1]))
+    res.append([i[1] for i in vals])
 
-print(hmap)
+print('-->',res[::-1])
