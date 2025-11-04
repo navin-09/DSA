@@ -65,3 +65,46 @@ Only the top disk of a rod can be moved
 | --------------- | -------------- | -------------- | -------------------------------------- |
 | Recursion / DFS | Stack          | Deep first     | Maze solver, permutations              |
 | Iterative BFS   | Queue          | Level first    | Minimum steps in a grid, shortest path |
+
+# Greedy
+🧩 1. What is a Greedy Algorithm?
+
+A Greedy algorithm builds up a solution piece by piece, always choosing the option that looks best at the moment, hoping that this local choice leads to the global optimum.
+
+In short:
+
+“Pick the best available choice right now — don’t reconsider later.”
+
+✅ Example
+
+Coin Change (Greedy version):
+If coins are [1, 5, 10, 25] and you need 63¢, take as many 25s as possible, then 10s, then 5s, then 1s.
+
+| Level     | Problem                                                              |
+| --------- | -------------------------------------------------------------------- |
+| 🟢 Easy   | Assign Cookies, Lemonade Change, Maximum Units on Truck              |
+| 🟡 Medium | Jump Game, Gas Station, Partition Labels, Non-overlapping Intervals  |
+| 🔵 Hard   | Minimum Number of Arrows to Burst Balloons, Candy, Reorganize String |
+
+
+# back_track
+
+1) Binary choice (include / exclude) — e.g., subsets, combinations (recursive choose/skip)
+Use when each element has two choices: take it or skip it.
+When to use: problems where decisions are binary for each position (subset, bitmask-style).
+
+2) For-loop over choices (combinatorial generation) — e.g., combinations by starting index
+Use when you choose one option out of many available alternatives at that level (and order doesn’t matter).
+When to use: combinations, subsequences, choose-from-remaining items (maintains increasing indices).
+
+3) Permutations (visited array) — order matters
+Use when order matters and you must avoid reuse of elements.
+When to use: permutations, arrangements where each position can be any unused item.
+
+4) Grid/graph DFS with visited matrix — e.g., word search, maze
+Use when movement is spatial and you must mark visited cells.
+When to use: pathfinding, grid word search, avoid cycles.
+
+5) Constraint-heavy problems using empties + MRV (Sudoku-like)
+Collect empties first, then pick the variable with fewest options (MRV). Good for hard constraint problems.
+When to use: heavy CSPs (Sudoku, scheduling), where heuristics matter.
