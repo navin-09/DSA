@@ -3,20 +3,26 @@ from typing import List
 
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
-        res = []
-        visit = [False]*len(nums)
-        def generate_permutations(ans):
-            if len(ans) == len(nums):
-                res.append(ans)
-                return
-            for idx,i in enumerate(nums):
-                if not visit[idx]:
-                    visit[idx] = True
-                    generate_permutations(ans + [i])
-                    visit[idx] = False
-        
-        generate_permutations([])
-        return res
+        n = len(nums)
+        visited = [False]*n
+        result = []
+        def dfs(path):
+            if len(path) == n:
+                result.append(path[:])
+            for i in range(n):
+                if not visited[i]:
+
+                    visited[i] = True # back track step
+                    path.append(nums[i])
+
+                    dfs(path)
+
+                    path.pop()
+                    visited[i] = False
+            
+
+        dfs([])
+        return result
     
 
 # Test Case 1
